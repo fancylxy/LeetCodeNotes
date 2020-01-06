@@ -169,7 +169,7 @@ def depthSum(nestedList) -> int:
 	queue_list = []
 	sum_list = 0
 	for nest in nestedList:
-    	queue_list.append([nest, 1])
+   		queue_list.append([nest, 1])
     while queue_list:
         curr = queue_list.pop(0)
         if curr[0].isInteger():
@@ -178,6 +178,8 @@ def depthSum(nestedList) -> int:
             for c in curr[0].getList():
                 queue_list.append([c, curr[1] + 1])
     return sum_list
+# tips:
+# 没啥好说的,递归吧
 
 
 
@@ -188,3 +190,20 @@ def sumZero(n) -> List[int]:
 	return range(-n + 1, n, 2)
 # tips
 # 步长2保证生成的列表长度为N,因为中间有0 存在 ，所以起始-n + 1
+
+
+
+# 12
+# 给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。
+def romanToInt(s) -> int:
+	List = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+	desList = {"IV":2,"IX":2,"XL":20,"XC":20,"CD":200,"CM":200}
+	number = 0
+	for v in s:
+		number = number + List[v]
+	for x in desList:
+		if re.search(x,s):
+			number = number - desList[x]
+	return number
+# tips 
+# 全局手法，先全部加起来，然后在减掉特征数值，清晰明了
