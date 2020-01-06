@@ -178,7 +178,6 @@ def depthSum(nestedList) -> int:
             for c in curr[0].getList():
                 queue_list.append([c, curr[1] + 1])
     return sum_list
-depthSum([[1,1],2,[1,1]])1
 
 
 
@@ -187,4 +186,5 @@ depthSum([[1,1],2,[1,1]])1
 # 给你一个整数 n，请你返回 任意 一个由 n 个 各不相同 的整数组成的数组，并且这 n 个数相加和为 0 。
 def sumZero(n) -> List[int]:
 	return range(-n + 1, n, 2)
-sumZero(5)
+# tips
+# 步长2保证生成的列表长度为N,因为中间有0 存在 ，所以起始-n + 1
